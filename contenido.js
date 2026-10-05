@@ -118,7 +118,9 @@ const REELS = [
     en: ['HOOK: "Here\'s exactly what your player does in two mornings at the Juventus ID Camp in Dallas."',
          'BODY: "Technique first: dribbling, passing, shooting, defending. Then small-sided games, where they use it under pressure. Same methodology as our academies, with coaches from Italy."',
          'CTA: "November 21–22, 9 to 1, Soccer Spectrum. Boys and girls, 6 to 16. Link below."'],
-    es: [] },
+    es: ['GANCHO: "Esto es exactamente lo que hace su hijo en dos mañanas en el ID Camp de Juventus en Dallas."',
+         'CUERPO: "Primero la técnica: regate, pase, tiro y defensa. Después, partidos reducidos, donde lo aplica bajo presión. La misma metodología de nuestras academias, con entrenadores de Italia."',
+         'CIERRE: "21 y 22 de noviembre, de 9 a 1, en Soccer Spectrum. Niños y niñas de 6 a 16 años. El enlace está abajo."'] },
   { n: 3, tit: '"¿Mi hijo está listo?"', tipo: 'Objeción (edad)', dur: '20 s', trig: 'Identificación: el miedo real del padre es que el entrenamiento no sea apropiado para la edad de su hijo',
     plano: 'Jesús sentado o de pie, de frente, tono tranquilo y cercano. Sin música fuerte.',
     en: ['HOOK: "Is my 7-year-old too young? Is my 15-year-old too old? Parents ask me this all the time."',
@@ -141,7 +143,7 @@ const REEL_TIPS = [
   'Ropa de entrenador de Juventus. En cuadro, solo Jesús (ni niños ni el coach vetado).',
   '2 o 3 tomas de cada guion. No hace falta decirlo palabra por palabra: lo importante es el gancho en los primeros 3 segundos.',
   'Al final de cada guion, 5 segundos de silencio mirando a cámara (sirve para cortar y para la portada).',
-  'Los reels 1 y 3 también en español: son la prueba del idioma (ver frente 07).',
+  'Los reels 1, 2 y 3 también en español: son la prueba del idioma (ver frente 07).',
 ];
 
 /* Piezas hechas (ChatGPT + logo real). */
