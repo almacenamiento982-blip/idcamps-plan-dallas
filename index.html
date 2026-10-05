@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Plan Dallas · ID Camp</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="icon" href="favicon.ico" sizes="any"><link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600;700&display=swap">
+<style>
+  :root {
+    --ground:#F5F4F1; --surface:#FFFFFF; --surface-2:#EEECE7; --line:#DDD9D1; --line-soft:#E9E6E0;
+    --ink:#121212; --ink-2:#4A4741; --ink-3:#7A766E;
+    --gold:#8C6420; --gold-bg:#F4EBD9; --band:#111111; --band-ink:#F3F1EC; --band-ink-2:#B9B5AD;
+    --ok:#2E6B41; --ok-bg:#E3EFE6; --red:#A3282D; --bar:#C9C4BA;
+    --display:"Barlow Condensed","Arial Narrow",sans-serif; --body:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+  }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+    color-scheme:dark; --ground:#0F0F10; --surface:#18181A; --surface-2:#222225; --line:#33332F; --line-soft:#28282A;
+    --ink:#EEECE7; --ink-2:#BDB8AF; --ink-3:#8E8980; --gold:#D3A653; --gold-bg:#2A2416; --band:#000000;
+    --ok:#77C690; --ok-bg:#16261B; --red:#E06A6F; --bar:#4A4843; } }
+  :root[data-theme="dark"] { color-scheme:dark; --ground:#0F0F10; --surface:#18181A; --surface-2:#222225; --line:#33332F; --line-soft:#28282A;
+    --ink:#EEECE7; --ink-2:#BDB8AF; --ink-3:#8E8980; --gold:#D3A653; --gold-bg:#2A2416; --band:#000000;
+    --ok:#77C690; --ok-bg:#16261B; --red:#E06A6F; --bar:#4A4843; }
+  * { box-sizing:border-box; }
+  html,body { margin:0; }
+  body { background:var(--ground); color:var(--ink); font-family:var(--body); font-size:16px; line-height:1.55; }
+  .wrap { max-width:960px; margin:0 auto; padding-inline:18px; }
+  /* cabecera */
+  .top { background:var(--band); color:var(--band-ink); }
+  .top .wrap { padding-block:38px 32px; }
+  .eyebrow { font-family:var(--display); font-weight:600; letter-spacing:.16em; text-transform:uppercase; font-size:14px; color:#C9A04A; margin:0 0 10px; }
+  h1 { font-family:var(--display); font-weight:700; text-transform:uppercase; font-size:clamp(38px,7vw,64px); line-height:.95; margin:0; text-wrap:balance; }
+  h1 em { font-style:normal; color:#C9A04A; }
+  .lead { max-width:62ch; margin:14px 0 0; color:var(--band-ink-2); font-size:17px; }
+  .keys { display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:1px; background:#2B2B2B; border:1px solid #2B2B2B; margin-top:26px; }
+  .keys div { background:#161616; padding:14px 16px; }
+  .keys dt { font-size:12px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:#8E8980; }
+  .keys dd { margin:4px 0 0; font-family:var(--display); font-weight:700; font-size:30px; line-height:1.05; color:#F3F1EC; font-variant-numeric:tabular-nums; }
+  .keys dd small { display:block; font-family:var(--body); font-size:13px; font-weight:400; color:#A8A39A; margin-top:3px; line-height:1.35; }
+  .stamp { font-size:13px; color:#8E8980; margin:14px 0 0; }
+  /* barra de progreso fija */
+  .progress { position:sticky; top:env(safe-area-inset-top,0px); z-index:10; background:var(--surface); border-bottom:1px solid var(--line); }
+  .progress .wrap { display:flex; align-items:center; gap:14px; padding-block:10px; flex-wrap:wrap; }
+  .progress b { font-family:var(--display); font-size:20px; font-variant-numeric:tabular-nums; }
+  .track { flex:1; min-width:140px; height:8px; background:var(--surface-2); border-radius:6px; overflow:hidden; }
+  .track i { display:block; height:100%; width:0; background:var(--gold); transition:width .25s; }
+  .progress .note { font-size:12.5px; color:var(--ink-3); }
+  /* secciones */
+  main .wrap { padding-block:10px 70px; }
+  section { margin-top:44px; }
+  h2 { font-family:var(--display); font-weight:700; text-transform:uppercase; font-size:clamp(26px,4.4vw,34px); line-height:1; margin:0 0 10px; text-wrap:balance; }
+  .kick { font-family:var(--display); font-weight:600; letter-spacing:.14em; text-transform:uppercase; font-size:13px; color:var(--gold); margin:0 0 6px; }
+  p { margin:0 0 12px; max-width:70ch; }
+  .muted { color:var(--ink-2); }
+  .panel { background:var(--surface); border:1px solid var(--line); border-radius:14px; }
+  .scroll { overflow-x:auto; }
+  table { width:100%; border-collapse:collapse; font-size:15px; min-width:520px; }
+  th,td { padding:10px 14px; border-bottom:1px solid var(--line-soft); text-align:left; vertical-align:top; }
+  th { font-size:12px; font-weight:600; letter-spacing:.07em; text-transform:uppercase; color:var(--ink-3); background:var(--surface-2); }
+  tbody tr:last-child td { border-bottom:0; }
+  .num { font-variant-numeric:tabular-nums; text-align:right; white-space:nowrap; }
+  tr.dal td { background:var(--gold-bg); }
+  .facts { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:14px; margin-top:14px; }
+  .fact { padding:16px 18px; }
+  .fact b { display:block; font-family:var(--display); font-size:21px; text-transform:uppercase; line-height:1.1; margin-bottom:6px; }
+  .fact p { margin:0; font-size:15px; color:var(--ink-2); }
+  /* gráfico semanal */
+  .weeks { padding:18px 18px 12px; }
+  .wk { display:grid; grid-template-columns:62px 1fr 1fr; gap:10px; align-items:center; font-size:13.5px; margin-bottom:6px; }
+  .wk .lab { color:var(--ink-3); font-variant-numeric:tabular-nums; }
+  .wk .b { display:flex; align-items:center; gap:6px; }
+  .wk .b i { display:block; height:14px; border-radius:0 3px 3px 0; background:var(--bar); }
+  .wk .b.d i { background:var(--gold); }
+  .wk .b span { font-variant-numeric:tabular-nums; color:var(--ink-2); }
+  .wkhead { display:grid; grid-template-columns:62px 1fr 1fr; gap:10px; font-size:12px; font-weight:600; letter-spacing:.07em; text-transform:uppercase; color:var(--ink-3); margin-bottom:8px; }
+  .callout { background:var(--gold-bg); border-left:4px solid var(--gold); padding:16px 18px; border-radius:0 12px 12px 0; margin-top:16px; }
+  .callout p { margin:0; max-width:none; }
+  .callout p + p { margin-top:8px; }
+  /* checklist */
+  .front { margin-top:18px; }
+  .front-head { display:flex; justify-content:space-between; align-items:baseline; gap:12px; flex-wrap:wrap; padding:16px 18px 6px; }
+  .front-head h3 { font-family:var(--display); font-weight:700; text-transform:uppercase; font-size:23px; margin:0; line-height:1.05; }
+  .front-head h3 span { color:var(--gold); margin-right:8px; }
+  .count { font-size:13px; font-weight:600; color:var(--ink-3); font-variant-numeric:tabular-nums; white-space:nowrap; }
+  .count.done { color:var(--ok); }
+  .why { padding:0 18px 4px; font-size:14.5px; color:var(--ink-2); max-width:none; }
+  ul.checks { list-style:none; margin:0; padding:4px 10px 12px; }
+  ul.checks li { border-top:1px solid var(--line-soft); }
+  ul.checks li:first-child { border-top:0; }
+  ul.checks label { display:grid; grid-template-columns:26px 1fr; gap:10px; padding:11px 8px; cursor:pointer; border-radius:8px; }
+  ul.checks label:hover { background:var(--surface-2); }
+  ul.checks input { width:20px; height:20px; margin:2px 0 0; accent-color:var(--gold); cursor:pointer; }
+  ul.checks .t { font-size:15.5px; }
+  ul.checks .t small { display:block; color:var(--ink-3); font-size:13.5px; margin-top:2px; }
+  ul.checks input:checked + .t { color:var(--ink-3); text-decoration:line-through; text-decoration-color:var(--ink-3); }
+  .tag { display:inline-block; font-size:11.5px; font-weight:600; letter-spacing:.05em; text-transform:uppercase; padding:1px 7px; border-radius:5px; background:var(--surface-2); color:var(--ink-2); margin-left:6px; vertical-align:1px; }
+  .tag.when { background:var(--gold-bg); color:var(--gold); }
+  .tools { display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
+  button.reset { font:inherit; font-size:13.5px; border:1px solid var(--line); background:var(--surface); color:var(--ink-2); padding:7px 12px; border-radius:8px; cursor:pointer; }
+  button.reset:hover { color:var(--ink); }
+  footer { margin-top:56px; padding-top:16px; border-top:1px solid var(--line); color:var(--ink-3); font-size:13px; }
+  @media (max-width:560px) { .wk, .wkhead { grid-template-columns:52px 1fr 1fr; gap:6px; } }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">Juventus Training Camps · ID Camp Dallas · 21–22 de noviembre de 2026</p>
+    <h1>Dallas: plan para que este año sea <em>el mejor</em></h1>
+    <p class="lead">Situación de Dallas tras la primera semana de campaña, lo que dice el histórico sobre el factor tiempo y la lista de acciones, frente por frente, para mover las inscripciones en las 7 semanas que quedan.</p>
+    <dl class="keys">
+      <div><dt>Niños pagados hoy</dt><dd>3<small>Chicago lleva 21 en el mismo periodo</small></dd></div>
+      <div><dt>Récord a superar</dt><dd>51 niños<small>Dallas 2024 (48 familias). En 2025 fueron 17.</small></dd></div>
+      <div><dt>Leads de Meta</dt><dd>13<small>$7,43 por lead · Chicago $2,56</small></dd></div>
+      <div><dt>Contactos de Dallas</dt><dd>1.565<small>1.551 con teléfono · 1.159 con correo</small></dd></div>
+    </dl>
+    <p class="stamp">Datos de Meta Ads y de la plataforma de registro al 4 de octubre de 2026, 9:20 pm (hora de Colombia).</p>
+  </div>
+</header>
+
+<div class="progress" aria-live="polite">
+  <div class="wrap">
+    <b id="pct">0 %</b>
+    <div class="track" role="progressbar" aria-label="Avance del plan" aria-valuemin="0" aria-valuemax="100"><i id="bar"></i></div>
+    <span class="note" id="cnt">0 de 0 acciones hechas</span>
+  </div>
+</div>
+
+<main>
+<div class="wrap">
+
+  <section>
+    <p class="kick">01 · Situación</p>
+    <h2>Dallas recibe clics, pero se registra la mitad</h2>
+    <p class="muted">Primera semana de la campaña de Meta (30-sep → 4-oct), Dallas frente a Chicago:</p>
+    <div class="panel scroll">
+      <table>
+        <thead><tr><th>Sede</th><th class="num">Gasto</th><th class="num">Leads</th><th class="num">Costo por lead</th><th class="num">Visitas que se registran</th><th class="num">Niños pagados</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Chicago</strong> · 14–15 nov</td><td class="num">$110,11</td><td class="num">43</td><td class="num">$2,56</td><td class="num">8,2 %</td><td class="num">21</td></tr>
+          <tr class="dal"><td><strong>Dallas</strong> · 21–22 nov</td><td class="num">$96,60</td><td class="num">13</td><td class="num">$7,43</td><td class="num">3,9 %</td><td class="num">3</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="facts">
+      <div class="panel fact"><b>Mismo anuncio, la mitad</b><p>El video de Jesús lleva casi la misma cantidad de personas a la página en las dos sedes (212 y 198), pero en Chicago se registra el 7,1 % y en Dallas el 3,5 %. El problema está después del clic, no en el anuncio.</p></div>
+      <div class="panel fact"><b>En Dallas funciona el video vertical</b><p>Reels y Stories: $46 y 11 leads. Feeds de Facebook e Instagram: $49 y 2 leads. En Chicago los feeds sí convierten.</p></div>
+      <div class="panel fact"><b>Familias que no terminan</b><p>Dallas tiene 9 registros en la plataforma y solo 2 pagados. Las demás familias empezaron la inscripción y no la completaron.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <p class="kick">02 · El factor tiempo</p>
+    <h2>¿Es porque a Dallas le falta más tiempo?</h2>
+    <p class="muted">A Chicago le faltan 41 días y a Dallas 48: una semana de diferencia. La temporada pasada las dos clínicas fueron el mismo fin de semana (24 de noviembre), con el mismo presupuesto (unos $70 por semana cada una).</p>
+    <div class="panel scroll">
+      <table>
+        <thead><tr><th>Noviembre 2025, mismas fechas</th><th class="num">Familias registradas</th><th class="num">Pagaron</th><th class="num">Niños</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Chicago</strong></td><td class="num">64</td><td class="num">30</td><td class="num">31</td></tr>
+          <tr class="dal"><td><strong>Dallas</strong></td><td class="num">32</td><td class="num">16</td><td class="num">17</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="panel weeks" style="margin-top:14px" role="img" aria-label="Leads de Meta por semana en la temporada 2025, Chicago y Dallas">
+      <div class="wkhead"><span>Semana</span><span>Chicago 2025</span><span>Dallas 2025</span></div>
+      <div id="weeks"></div>
+      <p class="muted" style="font-size:13px;margin:10px 0 0">Leads de Meta por semana. La respuesta en Dallas no subió al acercarse la fecha: bajó en las últimas cuatro semanas.</p>
+    </div>
+    <div class="callout">
+      <p><strong>Conclusión.</strong> Con las mismas fechas y el mismo presupuesto, Dallas hizo la mitad que Chicago, y su respuesta no creció al acercarse el camp. Esperar a que se acerque la fecha no va a resolverlo: hay que salir a buscar a las familias por todos los frentes.</p>
+      <p><strong>Meta del año.</strong> Superar el récord de 2024 (51 niños). Dato que falta: si los pagos se concentran cerca de la fecha. La base de temporadas anteriores no trae fecha de registro.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="kick">03 · Plan por frentes</p>
+    <h2>Lista de acciones</h2>
+    <p class="muted">Marcar cada acción a medida que se completa. Las marcas se guardan en el navegador de quien las hace.</p>
+    <div id="fronts"></div>
+    <div class="tools"><button class="reset" type="button" id="reset">Desmarcar todo</button></div>
+  </section>
+
+  <footer>Plan Dallas · ID Camp 21–22 de noviembre de 2026 · Juventus Training Camps. Preparado el 4 de octubre de 2026 con datos de Meta Ads, la plataforma de registro (solo totales), Instagram y el cruce de bases de Constant Contact, Vozzi y Meta.</footer>
+</div>
+</main>
+
+<script>
+// Leads de Meta por semana, clínicas noviembre 2025 (15-sep → 17-nov)
+const W = [['15 sep',5,3],['22 sep',9,6],['29 sep',6,10],['6 oct',7,7],['13 oct',7,10],['20 oct',9,6],['27 oct',6,3],['3 nov',5,5],['10 nov',9,1],['17 nov',1,1]];
+const mx = 10;
+document.getElementById('weeks').innerHTML = W.map(([s,c,d]) =>
+  `<div class="wk"><span class="lab">${s}</span><span class="b"><i style="width:${c/mx*80}%"></i><span>${c}</span></span><span class="b d"><i style="width:${d/mx*80}%"></i><span>${d}</span></span></div>`).join('');
+
+const F = [
+  { t:'Email y SMS', why:'Arranca esta semana en vez del 19 de octubre. El SMS es el canal que más responde: 11,5 % de clic contra 0,56 % del email.', items:[
+    ['Aprobar que los mensajes de Dallas del plan de email y SMS se adelanten a esta semana','', 'Lunes 5-oct'],
+    ['Pedir el export de las familias inscritas a Dallas 2026-27 que no han pagado','Hoy son 7 de 9 registros. Lo genera el equipo desde la plataforma.', 'Lunes 5-oct'],
+    ['Usar los segmentos de Dallas ya preparados','307 familias que pagaron en años anteriores · 315 registros sin pago · 943 contactos de la zona. Total 1.565.', ''],
+    ['Enviar primero por SMS y después por email','', ''],
+    ['Mensaje sin precio ni urgencia, mencionando que la camiseta va incluida','', ''],
+    ['Aprobar cada envío antes de mandarlo','No tocar los envíos ya programados en Constant Contact.', ''] ]},
+  { t:'Instagram y TikTok (posts e historias)', why:'El reel de Jesús de Dallas es de lo mejor de la cuenta: 1.518 de alcance y 32 compartidos. La cuenta no publica desde el 30 de septiembre.', items:[
+    ['Publicar unas 2 piezas de Dallas por semana hasta el 21-nov, primero en reel','La cuenta cubre las 7 sedes: no todo puede ser Dallas.', ''],
+    ['Subir historias de Dallas varias veces por semana','', ''],
+    ['Pieza: "la camiseta va incluida"','', ''],
+    ['Pieza: recuerdo del camp de Dallas de junio 2026','Prueba social con familias de allá. La cuenta ya tiene el carrusel "DALLAS ❤️ What a great week".', ''],
+    ['Pieza: cómo es un día en Soccer Spectrum','', ''],
+    ['Entregar el acceso a TikTok de Juventus Camps y subir los mismos reels','', ''] ]},
+  { t:'Grupo de WhatsApp', why:'Mensajes directos a familias que ya conocen la marca.', items:[
+    ['Confirmar qué grupo o grupos hay, cuántas familias tienen y si son de Dallas','', ''],
+    ['Preparar 2–3 mensajes con el enlace de registro de Dallas','', ''] ]},
+  { t:'Soccer Spectrum como aliado', why:'Es la sede del camp y tiene a las familias de la zona en sus canchas cada semana. Es el frente que más puede mover.', items:[
+    ['Hacer un post en colaboración en Instagram (función "Collab")','Sale en su cuenta y en la de Juventus Camps: llega a sus seguidores.', ''],
+    ['Pedir que compartan el camp en sus redes','', ''],
+    ['Poner volantes en su recepción y cartelera','', ''] ]},
+  { t:'Volantes', why:'Baratos y en el lugar exacto donde están los padres. Solo valen la pena si alguien allá los reparte.', items:[
+    ['Diseñar el volante en tamaño carta para imprimir, con QR a la página de Dallas','El QR lleva una marca para saber cuántas inscripciones llegan por los volantes.', ''],
+    ['Imprimir en Dallas (impresión local con recogida en la tienda)','', ''],
+    ['Definir quién los reparte allá','', ''],
+    ['Repartir en Soccer Spectrum, canchas de clubes de Richardson y Plano los fines de semana y tiendas de fútbol','', ''] ]},
+  { t:'Clubes y coaches de la zona', why:'Un coach que comparte el camp en el grupo de su equipo llega directo a los padres.', items:[
+    ['Enviar la información a directores y coaches de clubes de Richardson, Plano y Garland','', ''],
+    ['Buscar una alianza como la de Atlético Dallas Youth en 2025','Ese anuncio de alianza tuvo 44 compartidos en Instagram.', ''] ]},
+  { t:'Versión en español', why:'El área de Dallas tiene un mercado hispano muy grande y Jesús habla español. Se prueba y se mide.', items:[
+    ['Probar un anuncio en español dentro del conjunto de Dallas en Meta','', ''],
+    ['Preparar algunos mensajes de SMS y email en español','', ''] ]},
+  { t:'Página de registro', why:'Es la página que abre el padre al tocar el anuncio. Hoy, en el celular, el botón para inscribirse está a unas 4 pantallas hacia abajo. Afecta a todas las sedes, y en Dallas el problema está justamente después del clic.', items:[
+    ['Pasar al programador las mejoras','', ''],
+    ['Botón "Register" visible al abrir la página, sin tener que bajar','', ''],
+    ['Quitar el recuadro en blanco de la sección "Where" (el mapa no carga)','', ''],
+    ['Horario en formato de EE. UU.: "9:00 AM – 1:00 PM" en vez de 09:00 - 13:00','', ''],
+    ['Título de la pestaña con el nombre de la sede','', ''] ]},
+  { t:'Meta Ads', why:'Los anuncios cumplen 7 días el miércoles. Antes no se pausa nada: el aprendizaje de Meta necesita al menos 7 días y los cambios se hacen de a uno.', items:[
+    ['Revisión del miércoles 7-oct: si sigue igual, pausar solo el anuncio "Good enough" de Dallas','Es el único de los estáticos que gasta de verdad: $15,92 por 1 lead.', 'Mié 7-oct'],
+    ['Si los anuncios que quedan están en unos $5 por lead, subir el presupuesto de Dallas 20–30 %','De $18 a $22–23 al día, sin quitarle a Chicago.', 'Mié 7-oct'],
+    ['Si no mejora, ampliar el radio de 25 a 40 millas','', 'Mié 7-oct'],
+    ['Evaluar el Hero de Dallas cuando tenga más impresiones','Meta le dio 5 veces menos que al Hero de Chicago, que es el mejor anuncio de esa sede.', ''] ]},
+];
+
+let store = {};
+try { store = JSON.parse(localStorage.getItem('plan-dallas-v1') || '{}'); } catch (e) {}
+const save = () => { try { localStorage.setItem('plan-dallas-v1', JSON.stringify(store)); } catch (e) {} };
+
+document.getElementById('fronts').innerHTML = F.map((f, i) => `
+  <div class="panel front" data-f="${i}">
+    <div class="front-head"><h3><span>${String(i + 1).padStart(2, '0')}</span>${f.t}</h3><span class="count" data-c="${i}"></span></div>
+    <p class="why">${f.why}</p>
+    <ul class="checks">${f.items.map(([txt, sub, when], j) => `
+      <li><label><input type="checkbox" data-k="f${i}-${j}"><span class="t">${txt}${when ? `<span class="tag when">${when}</span>` : ''}${sub ? `<small>${sub}</small>` : ''}</span></label></li>`).join('')}
+    </ul>
+  </div>`).join('');
+
+const boxes = [...document.querySelectorAll('input[type=checkbox]')];
+function render() {
+  const done = boxes.filter(b => b.checked).length;
+  const pct = boxes.length ? Math.round(100 * done / boxes.length) : 0;
+  document.getElementById('pct').textContent = pct + ' %';
+  document.getElementById('bar').style.width = pct + '%';
+  document.querySelector('.track').setAttribute('aria-valuenow', pct);
+  document.getElementById('cnt').textContent = `${done} de ${boxes.length} acciones hechas`;
+  F.forEach((f, i) => {
+    const bs = boxes.filter(b => b.dataset.k.startsWith(`f${i}-`)), d = bs.filter(b => b.checked).length;
+    const el = document.querySelector(`[data-c="${i}"]`); el.textContent = `${d} / ${bs.length}`; el.classList.toggle('done', d === bs.length);
+  });
+}
+boxes.forEach(b => { b.checked = !!store[b.dataset.k]; b.addEventListener('change', () => { store[b.dataset.k] = b.checked; save(); render(); }); });
+document.getElementById('reset').addEventListener('click', () => { store = {}; save(); boxes.forEach(b => b.checked = false); render(); });
+render();
+</script>
+</body>
+</html>
