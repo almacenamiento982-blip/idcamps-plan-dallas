@@ -70,11 +70,11 @@ const M = {
     bloques: [['Inglés', `Did you know? 👕 Every player at the Dallas ID Camp takes home the official Juventus Academy training jersey.\n\nNov 21–22 at Soccer Spectrum, Richardson ⚽\n👉 ${LINK}`],
       ['Español', `¿Sabían? 👕 Cada jugador del ID Camp de Dallas se lleva la camiseta oficial de entrenamiento de Juventus Academy.\n\n21 y 22 de noviembre en Soccer Spectrum, Richardson ⚽\n👉 ${LINK}`]],
     nota: 'Se envía con el post "The jersey is included".' },
-  wa3: { tit: 'WhatsApp 3 · Familias de Dallas que ya vinieron', canal: 'Grupos de WhatsApp', pub: 'Los mismos grupos.', cuando: 'Miércoles 4 de noviembre, 7:00 pm hora de Dallas',
+  wa3: { tit: 'WhatsApp 3 · Familias de Dallas que ya vinieron', canal: 'Grupos de WhatsApp', pub: 'Los mismos grupos.', cuando: 'Miércoles 4 de noviembre, 7:00 pm hora de Dallas', img: 'piezas/post_51_jugadores.jpg',
     trig: 'Prueba social con cifra real (51 niños en 2024) y contraste (entrenar como en una academia de Juventus).',
     bloques: [['Inglés', `In 2024, 51 players from the Dallas area joined our ID Camp 💪\n\nThis year: Nov 21–22, two mornings training the way Juventus academy players do, with coaches from Italy ⚽🇮🇹\n👉 ${LINK}`],
       ['Español', `En 2024, 51 jugadores del área de Dallas hicieron nuestro ID Camp 💪\n\nEste año: 21 y 22 de noviembre, dos mañanas entrenando como en las academias de Juventus, con entrenadores desde Italia ⚽🇮🇹\n👉 ${LINK}`]],
-    nota: 'Se envía con una foto real del camp de Dallas de junio de 2026.' },
+    nota: 'Se envía con la pieza "51 players" (hecha con ChatGPT a partir de fotos reales del camp de Dallas). La misma pieza sale como post el 5-nov.' },
   wa4: { tit: 'WhatsApp 4 · Esta semana', canal: 'Grupos de WhatsApp', pub: 'Los mismos grupos.', cuando: 'Martes 17 de noviembre, 7:00 pm hora de Dallas',
     trig: 'Urgencia real: el camp es ese fin de semana.',
     bloques: [['Inglés', `This weekend! ⚽ Juventus ID Camp Dallas · Nov 21–22 · 9 AM–1 PM · Soccer Spectrum, Richardson.\n\nRegistration is online 👉 ${LINK}\nQuestions? Write me here 🙂`],
@@ -96,7 +96,7 @@ const CAL = [
   ['Mar 27-oct', 'Reel', 'Reel de Jesús 3 · "¿Mi hijo está listo?" (6 a 16 años)', 'Se graba el 6-oct'],
   ['Jue 29-oct', 'Post', 'Post "Dallas · info" en 4:5 (la historia de información adaptada al feed)', 'Por hacer'],
   ['Mar 3-nov', 'Reel', 'Reel de Jesús 4 · "Entrenar a la manera de Juventus"', 'Se graba el 6-oct'],
-  ['Jue 5-nov', 'Post', 'Post "51 jugadores en 2024" con foto real del camp de Dallas', 'Por hacer'],
+  ['Jue 5-nov', 'Post', 'Post "51 players" (51 jugadores en el ID Camp de Dallas 2024)', 'Lista', ['piezas/post_51_jugadores.jpg']],
   ['Mar 10-nov', 'Historia', 'Historias: preguntas frecuentes (edades, porteros, qué llevar)', 'Por hacer'],
   ['Jue 12-nov', 'Reel', 'Volver a publicar el mejor reel de Jesús del mes', ''],
   ['Mar 17-nov', 'Historia', 'Historia "This weekend in Dallas"', 'Por hacer'],
@@ -146,7 +146,7 @@ const REEL_TIPS = [
 
 /* Piezas hechas (ChatGPT + logo real). */
 const PIEZAS = {
-  post: { tit: 'Post · "The jersey is included" (4:5)', imgs: ['piezas/post_camiseta_incluida.jpg'], nota: 'Fotos reales del camp de Dallas con la camiseta normal de entrenamiento (negra con mangas blancas).' },
+  post: { tit: 'Posts (4:5)', imgs: ['piezas/post_camiseta_incluida.jpg', 'piezas/post_51_jugadores.jpg'], nota: 'Fotos reales del camp de Dallas con la camiseta normal de entrenamiento (negra con mangas blancas).' },
   historias: { tit: 'Historias (9:16)', imgs: ['piezas/story_info_dallas.jpg', 'piezas/story_camiseta_incluida.jpg', 'piezas/story_coaches_italia.jpg'], nota: 'El sticker de enlace va sobre la foto, sin tapar el texto. Se publican con el enlace a la página de Dallas.' },
   flyer_wa: { tit: 'Flyer de WhatsApp (4:5)', imgs: ['piezas/whatsapp_flyer_dallas.jpg'], nota: 'Sin precio en la imagen: el precio va en el texto del mensaje cuando corresponda.' },
   volante: { tit: 'Volante impreso · carta 8,5 × 11 a 300 dpi', imgs: ['piezas/volante_dallas_preview.jpg'], nota: 'Archivo para la imprenta: <a href="piezas/VOLANTE_DALLAS_carta_300dpi.pdf" target="_blank" rel="noopener">PDF carta a 300 dpi</a> (2550 × 3300 px; el PNG queda en la carpeta del proyecto). Se probó que el QR se lee incluso reducido. El QR lleva a la página de Dallas con utm_source=flyer para medir cuántas visitas llegan por los volantes.' },
