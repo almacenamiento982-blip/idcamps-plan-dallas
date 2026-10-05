@@ -84,13 +84,13 @@ const M = {
 
 /* Calendario de Instagram y TikTok (mismas piezas en las dos cuentas). Martes y jueves feed; lunes, miércoles y viernes historias. */
 const CAL = [
-  ['Mar 6-oct', 'Historia', 'Historia "Dallas · info" (fecha, hora, sede, edades) con sticker de enlace', 'Lista'],
-  ['Jue 8-oct', 'Post + historia', 'Post "The jersey is included" + su versión en historia', 'Lista'],
-  ['Vie 9-oct', 'Historia', 'Historia "Coaches from Italy"', 'Lista'],
+  ['Mar 6-oct', 'Historia', 'Historia "Dallas · info" (fecha, hora, sede, edades) con sticker de enlace', 'Lista', ['piezas/story_info_dallas.jpg']],
+  ['Jue 8-oct', 'Post + historia', 'Post "The jersey is included" + su versión en historia', 'Lista', ['piezas/post_camiseta_incluida.jpg', 'piezas/story_camiseta_incluida.jpg']],
+  ['Vie 9-oct', 'Historia', 'Historia "Coaches from Italy"', 'Lista', ['piezas/story_coaches_italia.jpg']],
   ['Mar 13-oct', 'Reel', 'Reel de Jesús 1 · "Lo que su hijo se lleva" (camiseta)', 'Se graba el 6-oct'],
   ['Mié 14-oct', 'Historia', 'Compartir el reel en historia, con sticker de enlace', ''],
   ['Jue 15-oct', 'Post Collab', 'Post en colaboración con Soccer Spectrum (carrusel "Dallas, junio 2026")', 'Por hacer'],
-  ['Lun 19-oct', 'Historia', 'Historia "Dallas · info" (repetir)', 'Lista'],
+  ['Lun 19-oct', 'Historia', 'Historia "Dallas · info" (repetir)', 'Lista', ['piezas/story_info_dallas.jpg']],
   ['Mar 20-oct', 'Reel', 'Reel de Jesús 2 · "Dos mañanas en el ID Camp"', 'Se graba el 6-oct'],
   ['Jue 22-oct', 'Reel (prueba)', 'Reel de Jesús en español con subtítulos en inglés (prueba del idioma)', 'Se graba el 6-oct'],
   ['Mar 27-oct', 'Reel', 'Reel de Jesús 3 · "¿Mi hijo está listo?" (6 a 16 años)', 'Se graba el 6-oct'],

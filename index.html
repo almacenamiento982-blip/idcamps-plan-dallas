@@ -124,6 +124,7 @@
   .gal img { width:100%; height:auto; border-radius:10px; border:1px solid var(--line); display:block; }
   .cal { width:100%; min-width:540px; font-size:14px; }
   .cal td:first-child { white-space:nowrap; font-weight:600; }
+  .cal img.mini { width:64px; height:auto; border-radius:6px; border:1px solid var(--line); margin:0 6px 4px 0; vertical-align:top; }
   .reel { border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin-top:12px; }
   .reel h5 { margin:0 0 4px; font-family:var(--display); font-size:20px; text-transform:uppercase; }
   .reel .sub { font-size:13.5px; color:var(--ink-3); margin:0 0 8px; }
@@ -329,7 +330,7 @@ function abrir(k) {
       + (m.nota ? `<p class="dlg-note">${m.nota}</p>` : '');
   } else if (k === 'cal') {
     titulo = 'Calendario Instagram y TikTok · Dallas';
-    html = `<div class="scroll"><table class="cal"><thead><tr><th>Día</th><th>Formato</th><th>Pieza</th><th>Estado</th></tr></thead><tbody>${CAL.map(r => `<tr>${r.map(c => `<td>${c}</td>`).join('')}</tr>`).join('')}</tbody></table></div>
+    html = `<div class="scroll"><table class="cal"><thead><tr><th>Día</th><th>Formato</th><th>Pieza</th><th>Estado</th><th>Pieza lista</th></tr></thead><tbody>${CAL.map(r => `<tr>${r.slice(0, 4).map(c => `<td>${c}</td>`).join('')}<td>${(r[4] || []).map(s => `<a href="${s}" target="_blank" rel="noopener"><img class="mini" src="${s}" alt="Pieza lista" loading="lazy"></a>`).join('')}</td></tr>`).join('')}</tbody></table></div>
       <p class="dlg-note">Las historias "Dallas · info", "camiseta incluida" y "Coaches from Italy" se rotan los lunes, miércoles y viernes de las semanas sin pieza nueva. Todo lo de Instagram se sube igual a TikTok cuando esté el acceso.</p>`;
   } else if (k === 'reels') {
     titulo = 'Guiones de reels para Jesús';
