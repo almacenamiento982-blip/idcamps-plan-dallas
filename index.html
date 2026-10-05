@@ -87,19 +87,49 @@
   .count.done { color:var(--ok); }
   .why { padding:0 18px 4px; font-size:14.5px; color:var(--ink-2); max-width:none; }
   ul.checks { list-style:none; margin:0; padding:4px 10px 12px; }
-  ul.checks li { border-top:1px solid var(--line-soft); }
+  ul.checks > li { border-top:1px solid var(--line-soft); }
   ul.checks li:first-child { border-top:0; }
   ul.checks label { display:grid; grid-template-columns:26px 1fr; gap:10px; padding:11px 8px; cursor:pointer; border-radius:8px; }
   ul.checks label:hover { background:var(--surface-2); }
   ul.checks input { width:20px; height:20px; margin:2px 0 0; accent-color:var(--gold); cursor:pointer; }
   ul.checks .t { font-size:15.5px; }
   ul.checks .t small { display:block; color:var(--ink-3); font-size:13.5px; margin-top:2px; }
-  ul.checks input:checked + .t { color:var(--ink-3); text-decoration:line-through; text-decoration-color:var(--ink-3); }
+  ul.checks input:checked + .t .tt { color:var(--ink-3); text-decoration:line-through; text-decoration-color:var(--ink-3); }
   .tag { display:inline-block; font-size:11.5px; font-weight:600; letter-spacing:.05em; text-transform:uppercase; padding:1px 7px; border-radius:5px; background:var(--surface-2); color:var(--ink-2); margin-left:6px; vertical-align:1px; }
   .tag.when { background:var(--gold-bg); color:var(--gold); }
   .tools { display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
   button.reset { font:inherit; font-size:13.5px; border:1px solid var(--line); background:var(--surface); color:var(--ink-2); padding:7px 12px; border-radius:8px; cursor:pointer; }
   button.reset:hover { color:var(--ink); }
+  ul.checks li { display:flex; align-items:flex-start; gap:8px; }
+  ul.checks li label { flex:1; }
+  button.ver { flex:none; font:inherit; font-size:13px; font-weight:600; margin:9px 6px 0 0; padding:5px 11px; border-radius:7px; border:1px solid var(--gold); background:var(--gold-bg); color:var(--gold); cursor:pointer; white-space:nowrap; }
+  button.ver:hover { background:var(--gold); color:var(--surface); }
+  .tag.hecho { background:var(--ok-bg); color:var(--ok); }
+  .front .nota { margin:0 18px 14px; padding:12px 14px; background:var(--surface-2); border-radius:10px; font-size:14px; color:var(--ink-2); }
+  .front .nota p { margin:0; max-width:none; } .front .nota p + p { margin-top:6px; }
+  dialog { width:min(760px, calc(100vw - 24px)); max-height:calc(100vh - 40px); border:1px solid var(--line); border-radius:14px; padding:0; background:var(--surface); color:var(--ink); }
+  dialog::backdrop { background:rgba(0,0,0,.55); }
+  .dlg-head { position:sticky; top:0; display:flex; justify-content:space-between; align-items:center; gap:12px; padding:14px 18px; background:var(--surface); border-bottom:1px solid var(--line); z-index:1; }
+  .dlg-head h4 { margin:0; font-family:var(--display); font-weight:700; text-transform:uppercase; font-size:22px; line-height:1.05; }
+  .dlg-head button { font:inherit; font-size:14px; border:1px solid var(--line); background:var(--surface-2); color:var(--ink); border-radius:8px; padding:6px 12px; cursor:pointer; }
+  .dlg-body { padding:16px 18px 20px; }
+  .meta { display:grid; grid-template-columns:110px 1fr; gap:6px 12px; font-size:14px; margin:0 0 14px; }
+  .meta dt { color:var(--ink-3); font-weight:600; } .meta dd { margin:0; color:var(--ink-2); }
+  .blk { margin-top:12px; }
+  .blk-h { display:flex; justify-content:space-between; align-items:center; font-size:12px; font-weight:600; letter-spacing:.07em; text-transform:uppercase; color:var(--ink-3); margin-bottom:5px; }
+  .blk-h button { font:inherit; font-size:12px; text-transform:none; letter-spacing:0; border:1px solid var(--line); background:var(--surface); color:var(--ink-2); border-radius:6px; padding:3px 9px; cursor:pointer; }
+  .blk pre { margin:0; white-space:pre-wrap; word-break:break-word; font-family:var(--body); font-size:15px; line-height:1.5; background:var(--surface-2); border-radius:10px; padding:12px 14px; }
+  .dlg-note { margin-top:14px; font-size:13.5px; color:var(--ink-3); }
+  .gal { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:12px; margin-top:6px; }
+  .gal img { width:100%; height:auto; border-radius:10px; border:1px solid var(--line); display:block; }
+  .cal { width:100%; min-width:540px; font-size:14px; }
+  .cal td:first-child { white-space:nowrap; font-weight:600; }
+  .reel { border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin-top:12px; }
+  .reel h5 { margin:0 0 4px; font-family:var(--display); font-size:20px; text-transform:uppercase; }
+  .reel .sub { font-size:13.5px; color:var(--ink-3); margin:0 0 8px; }
+  .reel ol { margin:6px 0 0; padding-left:20px; font-size:15px; } .reel ol li { margin-bottom:5px; }
+  .reel .es { color:var(--ink-2); }
+  .reel .ojo { margin-top:8px; font-size:13.5px; color:var(--red); }
   footer { margin-top:56px; padding-top:16px; border-top:1px solid var(--line); color:var(--ink-3); font-size:13px; }
   @media (max-width:560px) { .wk, .wkhead { grid-template-columns:52px 1fr 1fr; gap:6px; } }
 </style>
@@ -116,7 +146,7 @@
       <div><dt>Leads de Meta</dt><dd>14<small>$7,08 por lead · Chicago $2,57</small></dd></div>
       <div><dt>Contactos de Dallas</dt><dd>1.565<small>1.551 con teléfono · 1.159 con correo</small></dd></div>
     </dl>
-    <p class="stamp">Datos de Meta Ads y de la plataforma de registro al 4 de octubre de 2026, 11:17 pm (hora de Colombia).</p>
+    <p class="stamp">Datos de Meta Ads al 4 de octubre de 2026, 11:17 pm, y de la plataforma de registro al 5 de octubre, 12:14 am (hora de Colombia).</p>
   </div>
 </header>
 
@@ -178,7 +208,7 @@
   <section>
     <p class="kick">03 · Plan por frentes</p>
     <h2>Lista de acciones</h2>
-    <p class="muted">Marcar cada acción a medida que se completa. Las marcas se guardan en el navegador de quien las hace.</p>
+    <p class="muted">Marcar cada acción a medida que se completa. Las marcas se guardan en el navegador de quien las hace. El botón "Ver" abre el mensaje, el guion o la pieza lista para usar.</p>
     <div id="fronts"></div>
     <div class="tools"><button class="reset" type="button" id="reset">Desmarcar todo</button></div>
   </section>
@@ -187,6 +217,12 @@
 </div>
 </main>
 
+<dialog id="dlg" aria-labelledby="dlg-t">
+  <div class="dlg-head"><h4 id="dlg-t"></h4><button type="button" id="dlg-x">Cerrar</button></div>
+  <div class="dlg-body" id="dlg-b"></div>
+</dialog>
+
+<script src="contenido.js"></script>
 <script>
 // Leads de Meta por semana, clínicas noviembre 2025 (15-sep → 17-nov)
 const W = [['15 sep',5,3],['22 sep',9,6],['29 sep',6,10],['6 oct',7,7],['13 oct',7,10],['20 oct',9,6],['27 oct',6,3],['3 nov',5,5],['10 nov',9,1],['17 nov',1,1]];
@@ -195,63 +231,123 @@ document.getElementById('weeks').innerHTML = W.map(([s,c,d]) =>
   `<div class="wk"><span class="lab">${s}</span><span class="b"><i style="width:${c/mx*80}%"></i><span>${c}</span></span><span class="b d"><i style="width:${d/mx*80}%"></i><span>${d}</span></span></div>`).join('');
 
 const F = [
-  { t:'Email y SMS', why:'Arranca esta semana en vez del 19 de octubre. El SMS es el canal que más responde: 11,5 % de clic contra 0,56 % del email.', items:[
-    ['Aprobar que los mensajes de Dallas del plan de email y SMS se adelanten a esta semana','', 'Lunes 5-oct'],
-    ['Pedir el export de las familias inscritas a Dallas 2026-27 que no han pagado','Hoy son 7 de 9 registros. Lo genera el equipo desde la plataforma.', 'Lunes 5-oct'],
-    ['Usar los segmentos de Dallas ya preparados','307 familias que pagaron en años anteriores · 315 registros sin pago · 943 contactos de la zona. Total 1.565.', ''],
-    ['Enviar primero por SMS y después por email','', ''],
-    ['Mensaje sin precio ni urgencia, mencionando que la camiseta va incluida','', ''],
-    ['Aprobar cada envío antes de mandarlo','No tocar los envíos ya programados en Constant Contact.', ''] ]},
-  { t:'Instagram y TikTok (posts e historias)', why:'El reel de Jesús de Dallas es de lo mejor de la cuenta: 1.518 de alcance y 32 compartidos. La cuenta no publica desde el 30 de septiembre.', items:[
-    ['Publicar unas 2 piezas de Dallas por semana hasta el 21-nov, primero en reel','La cuenta cubre las 7 sedes: no todo puede ser Dallas.', ''],
-    ['Subir historias de Dallas varias veces por semana','', ''],
-    ['Pieza: "la camiseta va incluida"','', ''],
-    ['Pieza: recuerdo del camp de Dallas de junio 2026','Prueba social con familias de allá. La cuenta ya tiene el carrusel "DALLAS ❤️ What a great week".', ''],
-    ['Pieza: cómo es un día en Soccer Spectrum','', ''],
-    ['Entregar el acceso a TikTok de Juventus Camps y subir los mismos reels','', ''] ]},
-  { t:'Grupo de WhatsApp', why:'Mensajes directos a familias que ya conocen la marca.', items:[
-    ['Confirmar qué grupo o grupos hay, cuántas familias tienen y si son de Dallas','', ''],
-    ['Preparar 2–3 mensajes con el enlace de registro de Dallas','', ''] ]},
-  { t:'Soccer Spectrum como aliado', why:'Es la sede del camp y tiene a las familias de la zona en sus canchas cada semana. Es el frente que más puede mover.', items:[
-    ['Hacer un post en colaboración en Instagram (función "Collab")','Sale en su cuenta y en la de Juventus Camps: llega a sus seguidores.', ''],
-    ['Pedir que compartan el camp en sus redes','', ''],
-    ['Poner volantes en su recepción y cartelera','', ''] ]},
+  { t:'Email y SMS', why:'Arranca esta semana en vez del 19 de octubre. El SMS es el canal que más responde: 11,5 % de clic contra 0,56 % del email. Estos mensajes reemplazan los de Dallas del plan general de email y SMS: no se suman.',
+    nota:['<strong>Disparadores de venta en vez de "sin precio ni urgencia".</strong> Cada mensaje usa uno o dos disparadores reales según el canal: especificidad (fecha, hora, sede, edades, qué incluye), autoridad (entrenadores de Juventus Academy desde Italia), prueba social con cifras reales (más de 300 familias de Dallas, 51 niños en 2024), urgencia real (los días que faltan, nunca "últimos cupos") y riesgo reversible (precio claro y "responda si tiene dudas").', 'El precio ($225) aparece en email, SMS y WhatsApp. En anuncios y posts sigue sin aparecer.'],
+    items:[
+    { t:'Aprobación de Alessandro para adelantar la secuencia de Dallas a esta semana', w:'Lun 5-oct' },
+    { t:'Export de las familias registradas sin pagar', s:'Sacado el 5-oct de la plataforma, solo lectura: 7 familias (8 niños) en Dallas, todas con correo y teléfono. 5 son contactos nuevos que llegaron por los anuncios. Archivo privado, no se publica. En Chicago hay 26 familias en la misma situación.', hecho:true },
+    { t:'Cargar las listas "ID Dallas 26-27": Constant Contact (1.159 correos) y Vozzi (1.551 teléfonos)', s:'Segmentos ya cruzados: 307 familias que pagaron antes, 315 registros sin pago de años anteriores y 943 contactos de la zona. Antes de cada envío se quita a quien ya pagó Dallas 2026-27 con un export nuevo.' },
+    { t:'SMS 1 · Familias registradas sin pagar (7)', w:'Mar 6-oct', ver:'sms1' },
+    { t:'Email 1 · Anuncio (1.159 correos, prueba A/B de asunto)', w:'Mié 7-oct', ver:'em1' },
+    { t:'SMS 2 · Familias que ya conocen Juventus (unas 620)', w:'Jue 8-oct', ver:'sms2' },
+    { t:'Email 2 · Qué hace su hijo en las dos mañanas', w:'Mar 20-oct', ver:'em2' },
+    { t:'SMS 3 · Todos los teléfonos de Dallas (1.551), con precio', w:'Mar 3-nov', ver:'sms3' },
+    { t:'Email 3 · Prueba social: más de 300 familias de Dallas', w:'Jue 5-nov', ver:'em3' },
+    { t:'Email 4 · Faltan 9 días', w:'Jue 12-nov', ver:'em4' },
+    { t:'SMS 4 · A 3 días del camp', w:'Mié 18-nov', ver:'sms4' },
+    { t:'Email 5 · Logística a inscritos', w:'Jue 19-nov', ver:'em5' },
+    { t:'SMS 5 · Recordatorio a inscritos', w:'Vie 20-nov', ver:'sms5' },
+    { t:'Aprobación de Alessandro de cada envío antes de mandarlo', s:'No se tocan los envíos ya programados en Constant Contact.' } ]},
+  { t:'Instagram y TikTok (posts e historias)', why:'El reel de Jesús de Dallas es de lo mejor de la cuenta: 1.518 de alcance y 32 compartidos. La cuenta no publica desde el 30 de septiembre. Cada publicación se aprueba antes de salir.', items:[
+    { t:'Calendario hasta el 21-nov: martes y jueves en el feed; lunes, miércoles y viernes, historias', s:'Los días se eligieron para que el padre vea la pieza el mismo día o un día antes del email o SMS de esa semana. La cuenta cubre las 7 sedes: entre medio siguen las piezas de las otras sedes.', ver:'cal' },
+    { t:'Post "The jersey is included"', s:'Hecho con ChatGPT y fotos reales del camp de Dallas con la camiseta normal de entrenamiento.', ver:'pz:post', hecho:true },
+    { t:'3 historias: información de Dallas, camiseta incluida y "Coaches from Italy"', ver:'pz:historias', hecho:true },
+    { t:'Reels de Jesús: 4 guiones para grabar', s:'Sirven para Instagram y TikTok y como anuncios nuevos de Dallas. Los reels 1 y 3 también en español.', w:'Mar 6-oct', ver:'reels' },
+    { t:'Carrusel nuevo "Dallas, junio 2026" (recuerdo del camp)', s:'Es una pieza nueva, no un repost: el carrusel "DALLAS ❤️ What a great week" ya lo vieron los seguidores en junio. Se arma uno nuevo con las fotos reales de ese camp y una última lámina que invita al ID Camp de noviembre. Portada con ChatGPT y el resto en HTML. Sale como post en colaboración con Soccer Spectrum.', w:'Jue 15-oct' },
+    { t:'Entregar el acceso a TikTok de Juventus Camps y subir los mismos reels' } ]},
+  { t:'Grupos de WhatsApp', why:'Mensajes directos a familias que ya conocen la marca. Frecuencia: como máximo un mensaje por semana en cada grupo, 4 en total, los miércoles en la noche (el martes en la semana del camp). Más seguido cansa y la gente silencia el grupo.', items:[
+    { t:'Confirmar qué grupos hay, cuántas familias tienen, si son de Dallas y quién publica en cada uno' },
+    { t:'Flyer de WhatsApp', s:'Hecho con ChatGPT. En inglés; los textos van en inglés y en español.', ver:'pz:flyer_wa', hecho:true },
+    { t:'WhatsApp 1 · Anuncio + flyer', w:'Mié 7-oct', ver:'wa1' },
+    { t:'WhatsApp 2 · La camiseta va incluida', w:'Mié 21-oct', ver:'wa2' },
+    { t:'WhatsApp 3 · Familias de Dallas que ya vinieron', w:'Mié 4-nov', ver:'wa3' },
+    { t:'WhatsApp 4 · Esta semana', w:'Mar 17-nov', ver:'wa4' } ]},
+  { t:'Soccer Spectrum como aliado', why:'Es la sede del camp y tiene a las familias de la zona en sus canchas cada semana. Ya hay 2 posts en colaboración con su cuenta: el Hero de Dallas y el reel de Jesús.', items:[
+    { t:'Hacer más posts en colaboración con Soccer Spectrum (función "Collab" de Instagram)', s:'Al aceptar la colaboración, el post sale también en su cuenta. Próximos: el carrusel "Dallas, junio 2026" (15-oct) y uno de los reels nuevos de Jesús.' } ]},
   { t:'Volantes', why:'Baratos y en el lugar exacto donde están los padres. Solo valen la pena si alguien allá los reparte.', items:[
-    ['Diseñar el volante en tamaño carta para imprimir, con QR a la página de Dallas','El QR lleva una marca para saber cuántas inscripciones llegan por los volantes.', ''],
-    ['Imprimir en Dallas (impresión local con recogida en la tienda)','', ''],
-    ['Definir quién los reparte allá','', ''],
-    ['Repartir en Soccer Spectrum, canchas de clubes de Richardson y Plano los fines de semana y tiendas de fútbol','', ''] ]},
-  { t:'Clubes y coaches de la zona', why:'Un coach que comparte el camp en el grupo de su equipo llega directo a los padres.', items:[
-    ['Enviar la información a directores y coaches de clubes de Richardson, Plano y Garland','', ''],
-    ['Buscar una alianza como la de Atlético Dallas Youth en 2025','Ese anuncio de alianza tuvo 44 compartidos en Instagram.', ''] ]},
-  { t:'Versión en español', why:'El área de Dallas tiene un mercado hispano muy grande y Jesús habla español. Se prueba y se mide.', items:[
-    ['Probar un anuncio en español dentro del conjunto de Dallas en Meta','', ''],
-    ['Preparar algunos mensajes de SMS y email en español','', ''] ]},
+    { t:'Diseño del volante en tamaño carta para imprimir', s:'Proceso documentado: ChatGPT, logo real, escalado con Upscayl (×4, high fidelity), 2550 × 3300 px a 300 dpi y el QR pegado al final. El QR lleva utm_source=flyer para medir las visitas que llegan por los volantes.', ver:'pz:volante', hecho:true },
+    { t:'Imprimir en Dallas (impresión local con recogida en la tienda)' },
+    { t:'Definir quién los reparte allá' },
+    { t:'Poner volantes en la recepción y la cartelera de Soccer Spectrum' },
+    { t:'Repartir en canchas de clubes de Richardson y Plano los fines de semana y en tiendas de fútbol' } ]},
+  { t:'Clubes de la zona', why:'Una alianza con un club llega directo a sus familias. Los mensajes a coaches quedan solo para torneos.',
+    nota:['<strong>Qué fue la alianza con Atlético Dallas Youth.</strong> En noviembre de 2025 la clínica de Dallas se anunció "en colaboración con Atlético Dallas Youth" (reel, 1.902 de alcance). En febrero de 2026 se anunció "Juventus Camps USA x Atlético Dallas Youth": el club fue socio oficial del summer camp de Dallas (15–19 de junio), sus jugadores tenían un código de descuento exclusivo y el club lo difundía entre sus familias. Ese post llegó a 4.514 personas y tuvo 44 compartidos, de lo más compartido de la cuenta. En las fotos del camp de junio se ven sus pancartas en la cancha.'],
+    items:[
+    { t:'Proponerle a Atlético Dallas Youth repetir la alianza para el ID Camp', s:'Mismo esquema: código de descuento para sus jugadores y que lo difundan a sus familias. El código va en sus canales, nunca en los anuncios. Lo propone Alessandro o Jesús.' },
+    { t:'Si funciona, buscar 1 o 2 clubes más de Richardson o Plano con el mismo esquema' } ]},
+  { t:'Versión en español', why:'Antes de cambiar mensajes, se prueba en redes. El histórico ya da una pista fuerte.',
+    nota:['<strong>Lo que dice el histórico.</strong> En las clínicas de Dallas de 2025 hubo anuncios en video en español y en inglés. En español: $473,59 y 129 leads ($3,67 por lead). En inglés: $377,71 y 68 leads ($5,55). En Dallas, el español rindió mejor. En toda la cuenta, los anuncios en español suman $7.333 y 763 leads ($9,61 por lead), con mucha diferencia entre sedes.', 'En esta cuenta un "lead" es un clic en "Register Now", no una inscripción pagada.'],
+    items:[
+    { t:'Prueba en redes: reel de Jesús en español con subtítulos en inglés', s:'Jesús graba los reels 1 y 3 también en español. Se publica uno el 22-oct y se compara con los reels en inglés (alcance, compartidos y clics).', w:'Jue 22-oct' },
+    { t:'Anuncio en español dentro del conjunto de Dallas en Meta', s:'Entra después de la revisión del 7-oct, un cambio a la vez (frente 09).' },
+    { t:'Email y SMS: a las mismas personas, sin lista aparte', s:'La base no tiene el idioma de cada familia, así que no se puede separar. Los emails llevan un bloque corto en español al final (ya incluido en cada email). Los SMS siguen en inglés: con tildes cuestan el triple. Si la prueba en redes funciona, se agrega un SMS en español.', hecho:true } ]},
   { t:'Página de registro', why:'Es la página que abre el padre al tocar el anuncio. Hoy, en el celular, el botón para inscribirse está a unas 4 pantallas hacia abajo. Afecta a todas las sedes, y en Dallas el problema está justamente después del clic.', items:[
-    ['Pasar al programador las mejoras','', ''],
-    ['Botón "Register" visible al abrir la página, sin tener que bajar','', ''],
-    ['Quitar el recuadro en blanco de la sección "Where" (el mapa no carga)','', ''],
-    ['Horario en formato de EE. UU.: "9:00 AM – 1:00 PM" en vez de 09:00 - 13:00','', ''],
-    ['Título de la pestaña con el nombre de la sede','', ''] ]},
+    { t:'Pasar al programador las mejoras' },
+    { t:'Botón "Register" visible al abrir la página, sin tener que bajar' },
+    { t:'Horario en formato de EE. UU.', s:'Hoy la página dice "09:00 - 13:00", en formato de 24 horas. En EE. UU. casi nadie usa ese formato y obliga al padre a hacer la cuenta. Debe decir "9:00 AM – 1:00 PM".' },
+    { t:'Título de la pestaña con el nombre de la sede', s:'Hoy todas las sedes se llaman "Clinic Dates - Juventus Camps USA". Ese título se ve en la pestaña del navegador y en la vista previa cuando se comparte el enlace por WhatsApp o SMS. Si dijera "Juventus ID Camp Dallas · Nov 21–22", el enlace compartido ya mostraría la sede y la fecha.' } ]},
   { t:'Meta Ads', why:'Los anuncios cumplen 7 días el miércoles. Antes no se pausa nada: el aprendizaje de Meta necesita al menos 7 días y los cambios se hacen de a uno.', items:[
-    ['Revisión del miércoles 7-oct: si sigue igual, pausar solo el anuncio "Good enough" de Dallas','Es el único de los estáticos que gasta de verdad: $15,92 por 1 lead.', 'Mié 7-oct'],
-    ['Si los anuncios que quedan están en unos $5 por lead, subir el presupuesto de Dallas 20–30 %','De $18 a $22–23 al día, sin quitarle a Chicago.', 'Mié 7-oct'],
-    ['Si no mejora, ampliar el radio de 25 a 40 millas','', 'Mié 7-oct'],
-    ['Evaluar el Hero de Dallas cuando tenga más impresiones','Meta le dio 5 veces menos que al Hero de Chicago, que es el mejor anuncio de esa sede.', ''] ]},
+    { t:'Revisión del miércoles 7-oct: si sigue igual, pausar solo el anuncio "Good enough" de Dallas', s:'Es el único de los estáticos que gasta de verdad: $15,92 por 1 lead.', w:'Mié 7-oct' },
+    { t:'Si los anuncios que quedan están en unos $5 por lead, subir el presupuesto de Dallas 20–30 %', s:'De $18 a $22–23 al día, sin quitarle a Chicago.', w:'Mié 7-oct' },
+    { t:'Si no mejora, ampliar el radio de 25 a 40 millas', w:'Mié 7-oct' },
+    { t:'Agregar un video nuevo de Jesús como anuncio de Dallas', s:'Sí conviene: en Dallas convierten los Reels y las Stories, y el video de Jesús es lo que mejor funciona. Entra después de la decisión del 7-oct y nunca el mismo día que otro cambio, porque cada anuncio nuevo reinicia el aprendizaje. Orden: primero el reel 1 (camiseta) en inglés; después el reel 3 en español, como prueba del idioma.', w:'Desde 8-oct' },
+    { t:'Evaluar el Hero de Dallas cuando tenga más impresiones', s:'Meta le dio 5 veces menos que al Hero de Chicago, que es el mejor anuncio de esa sede.' },
+    { t:'Google Ads: por ahora no', s:'Sin medición de inscripciones (el píxel y la app siguen sin conectarse) no se puede saber si funciona, y la propiedad de la cuenta de Google Ads sigue pendiente. Alessandro ya había pedido esperar a tener buenos resultados en Meta y la página optimizada. Se retoma para Summer 2027 con una campaña pequeña de búsqueda ("soccer camp Dallas").', hecho:true },
+    { t:'Estados de WhatsApp: hoy los anuncios no salen ahí', s:'El desglose por ubicación de Dallas solo muestra Facebook e Instagram: no hubo gasto en los Estados de WhatsApp. No se cambia nada; la prioridad son Reels y Stories.', hecho:true } ]},
 ];
 
+const KEY = 'plan-dallas-v2';
 let store = {};
-try { store = JSON.parse(localStorage.getItem('plan-dallas-v1') || '{}'); } catch (e) {}
-const save = () => { try { localStorage.setItem('plan-dallas-v1', JSON.stringify(store)); } catch (e) {} };
+try { store = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) {}
+const save = () => { try { localStorage.setItem(KEY, JSON.stringify(store)); } catch (e) {} };
+const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
 document.getElementById('fronts').innerHTML = F.map((f, i) => `
   <div class="panel front" data-f="${i}">
     <div class="front-head"><h3><span>${String(i + 1).padStart(2, '0')}</span>${f.t}</h3><span class="count" data-c="${i}"></span></div>
     <p class="why">${f.why}</p>
-    <ul class="checks">${f.items.map(([txt, sub, when], j) => `
-      <li><label><input type="checkbox" data-k="f${i}-${j}"><span class="t">${txt}${when ? `<span class="tag when">${when}</span>` : ''}${sub ? `<small>${sub}</small>` : ''}</span></label></li>`).join('')}
+    ${f.nota ? `<div class="nota">${f.nota.map(p => `<p>${p}</p>`).join('')}</div>` : ''}
+    <ul class="checks">${f.items.map((it, j) => `
+      <li><label><input type="checkbox" data-k="f${i}-${j}" ${it.hecho ? 'data-hecho="1"' : ''}><span class="t"><span class="tt">${it.t}</span>${it.w ? `<span class="tag when">${it.w}</span>` : ''}${it.hecho ? '<span class="tag hecho">Hecho</span>' : ''}${it.s ? `<small>${it.s}</small>` : ''}</span></label>${it.ver ? `<button class="ver" type="button" data-ver="${it.ver}">Ver</button>` : ''}</li>`).join('')}
     </ul>
   </div>`).join('');
+
+/* ventana de detalle */
+const dlg = document.getElementById('dlg'), dt = document.getElementById('dlg-t'), db = document.getElementById('dlg-b');
+function copiar(btn, txt) {
+  const ok = () => { btn.textContent = 'Copiado'; setTimeout(() => btn.textContent = 'Copiar', 1500); };
+  try { navigator.clipboard.writeText(txt).then(ok, () => sel(btn)); } catch (e) { sel(btn); }
+}
+function sel(btn) { const pre = btn.closest('.blk').querySelector('pre'); const r = document.createRange(); r.selectNodeContents(pre); const s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = 'Seleccionado'; }
+function abrir(k) {
+  let titulo = '', html = '';
+  if (M[k]) {
+    const m = M[k]; titulo = m.tit;
+    html = `<dl class="meta"><dt>Canal</dt><dd>${m.canal}</dd><dt>Público</dt><dd>${m.pub}</dd><dt>Cuándo</dt><dd>${m.cuando}</dd><dt>Disparadores</dt><dd>${m.trig}</dd></dl>`
+      + (m.img ? `<div class="gal" style="max-width:320px"><img src="${m.img}" alt="Imagen que acompaña el mensaje"></div>` : '')
+      + m.bloques.map(([h, txt]) => `<div class="blk"><div class="blk-h"><span>${h}</span><button type="button" data-copy>Copiar</button></div><pre>${esc(txt)}</pre></div>`).join('')
+      + (m.nota ? `<p class="dlg-note">${m.nota}</p>` : '');
+  } else if (k === 'cal') {
+    titulo = 'Calendario Instagram y TikTok · Dallas';
+    html = `<div class="scroll"><table class="cal"><thead><tr><th>Día</th><th>Formato</th><th>Pieza</th><th>Estado</th></tr></thead><tbody>${CAL.map(r => `<tr>${r.map(c => `<td>${c}</td>`).join('')}</tr>`).join('')}</tbody></table></div>
+      <p class="dlg-note">Las historias "Dallas · info", "camiseta incluida" y "Coaches from Italy" se rotan los lunes, miércoles y viernes de las semanas sin pieza nueva. Todo lo de Instagram se sube igual a TikTok cuando esté el acceso.</p>`;
+  } else if (k === 'reels') {
+    titulo = 'Guiones de reels para Jesús';
+    html = `<p class="muted" style="font-size:14.5px">Estructura de los 4: gancho en los primeros 3 segundos, cuerpo con un solo mensaje y cierre con fecha, sede y enlace. Duración de 15 a 25 segundos. <a href="piezas/GUIONES_REELS_JESUS_DALLAS.pdf" target="_blank" rel="noopener">Versión en PDF para enviarle a Jesús</a>.</p>`
+      + REELS.map(r => `<div class="reel"><h5>Reel ${r.n} · ${r.tit}</h5><p class="sub">${r.tipo} · ${r.dur} · ${r.trig}</p><p style="font-size:14.5px;margin:0 0 6px"><strong>Plano:</strong> ${r.plano}</p>
+        <ol>${r.en.map(l => `<li>${esc(l)}</li>`).join('')}</ol>${r.es.length ? `<p style="margin:10px 0 0;font-size:13px;font-weight:600;color:var(--ink-3)">VERSIÓN EN ESPAÑOL</p><ol class="es">${r.es.map(l => `<li>${esc(l)}</li>`).join('')}</ol>` : ''}${r.ojo ? `<p class="ojo">${r.ojo}</p>` : ''}</div>`).join('')
+      + `<div class="reel"><h5>Para grabar</h5><ol>${REEL_TIPS.map(t => `<li>${t}</li>`).join('')}</ol></div>`;
+  } else if (k.startsWith('pz:')) {
+    const p = PIEZAS[k.slice(3)]; titulo = p.tit;
+    html = `<div class="gal">${p.imgs.map(s => `<img src="${s}" alt="${p.tit}" loading="lazy">`).join('')}</div><p class="dlg-note">${p.nota}</p>`;
+  }
+  dt.textContent = titulo; db.innerHTML = html; db.scrollTop = 0;
+  db.querySelectorAll('[data-copy]').forEach(b => b.addEventListener('click', () => copiar(b, b.closest('.blk').querySelector('pre').textContent)));
+  dlg.showModal();
+}
+document.querySelectorAll('[data-ver]').forEach(b => b.addEventListener('click', () => abrir(b.dataset.ver)));
+document.getElementById('dlg-x').addEventListener('click', () => dlg.close());
+dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
 
 const boxes = [...document.querySelectorAll('input[type=checkbox]')];
 function render() {
@@ -266,8 +362,8 @@ function render() {
     const el = document.querySelector(`[data-c="${i}"]`); el.textContent = `${d} / ${bs.length}`; el.classList.toggle('done', d === bs.length);
   });
 }
-boxes.forEach(b => { b.checked = !!store[b.dataset.k]; b.addEventListener('change', () => { store[b.dataset.k] = b.checked; save(); render(); }); });
-document.getElementById('reset').addEventListener('click', () => { store = {}; save(); boxes.forEach(b => b.checked = false); render(); });
+boxes.forEach(b => { const k = b.dataset.k; b.checked = k in store ? !!store[k] : !!b.dataset.hecho; b.addEventListener('change', () => { store[k] = b.checked; save(); render(); }); });
+document.getElementById('reset').addEventListener('click', () => { store = {}; save(); boxes.forEach(b => b.checked = !!b.dataset.hecho); render(); });
 render();
 </script>
 </body>
