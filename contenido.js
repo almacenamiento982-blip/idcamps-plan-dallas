@@ -9,8 +9,8 @@ const M = {
   /* ───────── SMS ───────── */
   sms1: { tit: 'SMS 1 · Familias registradas sin pagar', canal: 'SMS (Vozzi)', pub: '7 familias de Dallas registradas en la plataforma que no han pagado (export del 5-oct). Se vuelve a sacar el export el mismo día y se quita a quien ya haya pagado.', cuando: 'Martes 6 de octubre, 6:00 pm hora de Dallas',
     trig: 'Identificación (le habla a su situación exacta) y riesgo reversible (ofrece ayuda, no presiona).',
-    bloques: [['Texto', `[[FIRSTNAME]], your Dallas ID Camp signup (Nov 21-22) isn't finished. Need help? Reply here. ${LINK}\n${PIE_SMS}`]],
-    nota: '159 caracteres con un nombre de 8 letras. 5 de estas 7 familias son contactos nuevos que llegaron por los anuncios. Las respuestas en Vozzi las atiende alguien del equipo el mismo día.' },
+    bloques: [['Texto', `[[FIRSTNAME]], your Dallas ID Camp signup (Nov 21-22) isn't finished. Need help? Reply. ${LINK}\n${PIE_SMS}`]],
+    nota: '155 caracteres con un nombre de 8 letras. Alessandro lo aprobó el 05-10 y sale el 6-oct junto con el de Chicago (mismo texto con Chicago, Nov 14-15 y /clinics/127/Chicago). 5 de estas 7 familias son contactos nuevos que llegaron por los anuncios. Las respuestas en Vozzi las atiende alguien del equipo el mismo día.' },
   sms2: { tit: 'SMS 2 · Familias que ya conocen Juventus', canal: 'SMS (Vozzi)', pub: 'Familias de Dallas que pagaron en años anteriores (307) y registros sin pago de años anteriores (315). Sin duplicados y sin quien ya pagó Dallas 2026-27.', cuando: 'Jueves 8 de octubre, 6:00 pm hora de Dallas',
     trig: 'Especificidad (fecha, hora, sede) y la novedad real de la camiseta incluida.',
     bloques: [['Texto', `Juventus ID Camp is back in Dallas! Nov 21-22, 9AM-1PM at Soccer Spectrum. Jersey incl. ${LINK}\n${PIE_SMS}`]],
